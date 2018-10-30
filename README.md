@@ -1,34 +1,34 @@
 # UART_RX
 
--[x] D flip flop (dff)
+- [x] D flip flop (dff)
 
--[x] D flip flop test bench
+- [x] D flip flop test bench
 
--[x] Divide by four (div4)
+- [x] Divide by four (div4)
 
--[x] Divide by four testbench
+- [x] Divide by four testbench
 
--[] Parity Generator(pargen)
+- [ ] Parity Generator(pargen)
 
--[] Parity Generator testbench
+- [ ] Parity Generator testbench
 
--[] Shift register
+- [ ] Shift register
 
--[] Shift register testbench
+- [ ] Shift register testbench
 
--[] Sample timing and start bit FSM
+- [ ] Sample timing and start bit FSM
 
--[] Sample timing and start bit FSM testbench
+- [ ] Sample timing and start bit FSM testbench
 
--[] 8 bit compare
+- [ ] 8 bit compare
 
--[] 8 bit compare testbench
+- [ ] 8 bit compare testbench
 
--[] ROM
+- [ ] ROM
 
--[] ROM testbench
+- [ ] ROM testbench
 
--[] 1 bit compare
+- [ ] 1 bit compare
 
--[] 1 bit compare testbench
+- [ ] 1 bit compare testbench
 
