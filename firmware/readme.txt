@@ -1,4 +1,4 @@
-D flip flop is done(tb not done)
+D flip flop is done(testbench done)
 
 
 
