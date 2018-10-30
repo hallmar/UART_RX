@@ -7,5 +7,5 @@ PORT(
 	clk_i: IN std_logic;
 	rb_i: IN std_logic;
 	en_i: IN std_logic;
-	q_o: IN std_logic);
+	q_o: OUT std_logic);
 end dff_e;
