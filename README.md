@@ -1,9 +1,13 @@
 # UART_RX
 
 ### Design rules
+
 Reset rb_i for each block is active low
+
 clk_i is 50Mhz
+
 Always follow names of inputs and outputs of blocks from blockdiagram
+
 ### Checklist
 
 - [ ] Top Entity (UART RX) 
