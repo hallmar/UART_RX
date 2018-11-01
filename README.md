@@ -10,43 +10,43 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 ### Checklist
 
-- [x] Top Entity (UARTrx) 
+- [x] Top Entity *(UARTrx)* 
 
 - [ ] Top Entity testbench
 
-- [x] D flip flop (dff)
+- [x] D flip flop *(dff)*
 
 - [x] D flip flop test bench
 
-- [x] Divide by four (div4)
+- [x] Divide by four *(div4)*
 
 - [x] Divide by four testbench
 
-- [x] Divide by 25 mega (div50meg)
+- [x] Divide by 25 mega *(div50meg)*
 
 - [ ] Divide by 25 mega testbench
 
-- [ ] Parity Generator(pargen)
+- [ ] Parity Generator *(pargen)*
 
 - [ ] Parity Generator testbench
 
-- [ ] Shift register
+- [ ] Shift register *(shiftreg)*
 
 - [ ] Shift register testbench
 
-- [ ] Sample timing and start bit FSM
+- [ ] Sample timing and start bit FSM *(FSM)*
 
 - [ ] Sample timing and start bit FSM testbench
 
-- [ ] 8 bit compare
+- [ ] 8 bit compare *(eightcomp)*
 
 - [ ] 8 bit compare testbench
 
-- [ ] ROM
+- [ ] ROM *(rom)*
 
 - [ ] ROM testbench
 
-- [ ] 1 bit compare
+- [ ] 1 bit compare *(xnoren)*
 
 - [ ] 1 bit compare testbench
 
