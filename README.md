@@ -10,7 +10,7 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 ### Checklist
 
-- [ ] Top Entity (UART RX) 
+- [x] Top Entity (UARTrx) 
 
 - [ ] Top Entity testbench
 
@@ -21,6 +21,10 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 - [x] Divide by four (div4)
 
 - [x] Divide by four testbench
+
+- [x] Divide by 25 mega (div50meg)
+
+- [ ] Divide by 25 mega testbench
 
 - [ ] Parity Generator(pargen)
 
