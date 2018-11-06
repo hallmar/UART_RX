@@ -26,9 +26,9 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [ ] Divide by 25 mega testbench
 
-- [ ] Parity Generator **(pargen)**
+- [x] Parity Generator **(pargen)**
 
-- [ ] Parity Generator testbench
+- [x] Parity Generator testbench
 
 - [ ] Shift register **(shiftreg)**
 
