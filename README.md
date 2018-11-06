@@ -24,7 +24,7 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] Divide by 25 mega **(div50meg)**
 
-- [ ] Divide by 25 mega testbench
+- [x] Divide by 25 mega testbench
 
 - [x] Parity Generator **(pargen)**
 
