@@ -32,9 +32,9 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] Parity Generator testbench
 
-- [ ] Shift register **(shiftreg)**
+- [x] Shift register **(shiftreg)**
 
-- [ ] Shift register testbench
+- [x] Shift register testbench
 
 - [ ] Sample timing and start bit FSM **(FSM)**
 
