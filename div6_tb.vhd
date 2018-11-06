@@ -3,14 +3,14 @@ LIBRARY ieee;
 USE ieee.std_logic_1164.ALL;
 
  
-ENTITY div4_tb IS
-END div4_tb;
+ENTITY div6_tb IS
+END div6_tb;
  
-ARCHITECTURE behavior OF div4_tb IS 
+ARCHITECTURE behavior OF div6_tb IS 
  
     -- Component Declaration for the Unit Under Test (UUT)
  
-    COMPONENT div4_e
+    COMPONENT div6_e
     PORT(
          en_i : IN  std_logic;
          clk_i : IN  std_logic;
@@ -33,7 +33,7 @@ ARCHITECTURE behavior OF div4_tb IS
 BEGIN
  
 	-- Instantiate the Unit Under Test (UUT)
-   uut: div4_e PORT MAP (
+   uut: div6_e PORT MAP (
           en_i => en_i,
           clk_i => clk_i,
           rb_i => rb_i,
