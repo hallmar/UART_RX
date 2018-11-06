@@ -1,6 +1,6 @@
 # UART_RX
 ![Block diagram](/images/block.jpg)
-Format: ![Alt Text](url)
+
 
 ### Design rules
 
