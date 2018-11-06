@@ -20,9 +20,9 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] D flip flop test bench
 
-- [x] Divide by four **(div4)**
+- [x] Divide by six **(div6)**
 
-- [x] Divide by four testbench
+- [x] Divide by six testbench
 
 - [x] Divide by 25 mega **(div50meg)**
 
