@@ -48,7 +48,7 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [ ] ROM testbench
 
-- [ ] 1 bit compare **(xnoren)**
+- [x] 1 bit compare **(xnoren)**
 
 - [ ] 1 bit compare testbench
 
