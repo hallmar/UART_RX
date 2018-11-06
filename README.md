@@ -40,9 +40,9 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [ ] Sample timing and start bit FSM testbench
 
-- [ ] 8 bit compare **(eightcomp)**
+- [x] 8 bit compare **(eightcomp)**
 
-- [ ] 8 bit compare testbench
+- [x] 8 bit compare testbench
 
 - [ ] ROM **(rom)**
 
