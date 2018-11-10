@@ -36,9 +36,9 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] Shift register testbench
 
-- [ ] Sample timing and start bit FSM **(FSM)**
+- [x] Sample timing and start bit FSM **(FSM)**
 
-- [ ] Sample timing and start bit FSM testbench
+- [x] Sample timing and start bit FSM testbench
 
 - [x] 8 bit compare **(eightcomp)**
 
