@@ -14,7 +14,7 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] Top Entity **(UARTrx)** 
 
-- [ ] Top Entity testbench
+- [x] Top Entity testbench
 
 - [x] D flip flop **(dff)**
 
