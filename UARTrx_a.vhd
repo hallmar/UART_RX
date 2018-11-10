@@ -63,13 +63,13 @@ architecture UARTrx_a of UARTrx_e is
       rb_i     : in     std_logic);
   end component rom_e;
 
-  component div4_e
+  component div6_e
     port (
       c_o   : out    std_logic;
       clk_i : in     std_logic;
       en_i  : in     std_logic;
       rb_i  : in     std_logic);
-  end component div4_e;
+  end component div6_e;
 
   component fsm_e
     port (
@@ -142,14 +142,14 @@ begin
       pass_sel => pass_sel,
       rb_i     => rb_i);
 
-  u7div4: div4_e
+  u7div6: div6_e
     port map(
       c_o   => u7div4_c_o,
       clk_i => clk_i,
       en_i  => u3eightcomp_y_o,
       rb_i  => rb_i);
 
-  u8div4: div4_e
+  u8div6: div6_e
     port map(
       c_o   => u8div4_c_o,
       clk_i => clk_i,
@@ -164,7 +164,7 @@ begin
       rb_i      => rb_i,
       sren_o    => sren_o);
 
-  u10div4: div4_e
+  u10div6: div6_e
     port map(
       c_o   => c_o,
       clk_i => clk_i,
@@ -176,5 +176,8 @@ begin
       clk_i => clk_i,
       div_o => heartb_o,
       rb_i  => rb_i);
+		
+	rb_o <= rb_i;
+	passsel_o(1) <= pass_sel(1);
+	passsel_o(0) <= pass_sel(0);
 end architecture UARTrx_a ; -- of UARTrx_e
-

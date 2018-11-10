@@ -9,5 +9,8 @@ entity UARTrx_e is
     parity_o : out    std_logic;
     pass_o   : out    std_logic;
     pass_sel : in     std_logic_vector(1 downto 0);
-    rb_i     : in     std_logic);
+    rb_i     : in     std_logic;
+	rb_o     : out	 std_logic;
+	passsel_o : out	 std_logic_vector(1 downto 0)
+	 );
 end entity UARTrx_e;
