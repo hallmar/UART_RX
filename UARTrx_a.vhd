@@ -11,6 +11,7 @@ architecture UARTrx_a of UARTrx_e is
   signal c_o             : std_logic;
   signal u8div4_c_o      : std_logic;
   signal u7div4_c_o      : std_logic;
+  signal nxt_o           : std_logic;
 
   component shiftreg_e
     port (
@@ -76,6 +77,7 @@ architecture UARTrx_a of UARTrx_e is
       RX_i      : in     std_logic;
       clk_i     : in     std_logic;
       compare_o : out    std_logic;
+      nxt_o     : out    std_logic;
       rb_i      : in     std_logic;
       sren_o    : out    std_logic);
   end component fsm_e;
@@ -138,7 +140,7 @@ begin
     port map(
       char_o   => char_o,
       clk_i    => clk_i,
-      en_i     => compare_o,
+      en_i     => nxt_o,
       pass_sel => pass_sel,
       rb_i     => rb_i);
 
@@ -161,6 +163,7 @@ begin
       RX_i      => RX_i,
       clk_i     => clk_i,
       compare_o => compare_o,
+      nxt_o     => nxt_o,
       rb_i      => rb_i,
       sren_o    => sren_o);
 
@@ -176,7 +179,6 @@ begin
       clk_i => clk_i,
       div_o => heartb_o,
       rb_i  => rb_i);
-		
 	rb_o <= rb_i;
 	passsel_o(1) <= pass_sel(1);
 	passsel_o(0) <= pass_sel(0);
