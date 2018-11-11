@@ -1,5 +1,5 @@
-library IEEE;
-    use IEEE.STD_LOGIC_1164.all;
+library ieee;
+    use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
     use work.all;
 
@@ -10,6 +10,3 @@ entity xnoren_e is
 		en_i:in	std_logic;
 		y_o: out std_logic);
 end entity xnoren_e;
-		
-
-

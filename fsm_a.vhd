@@ -23,16 +23,16 @@ begin
 				bit_index_s <= 0;
 				sren_s <= '0';
 				compare_s <= '0';
-				if(RX_i = '0') then
+				if(rx_i = '0') then
 					pr_state <= startbit_state;
 				else
 					pr_state <= reset_state;
 				end if;
-------------------Startbit state--------------------	
+------------------startbit state--------------------	
 			when startbit_state =>
 				
 				if(counter_s = halfbaud_count-1) then
-					if(RX_i = '0') then
+					if(rx_i = '0') then
 						counter_s <= 0;
 						pr_state <= sample_state;
 					else
@@ -59,7 +59,7 @@ begin
 						pr_state <= stopbit_state;
 				   end if; --bit index if ends
 				end if; --counter if ends
-------------------Stopbit state--------------------
+------------------stopbit state--------------------
 			when stopbit_state =>
 			sren_s <= '0';
 				if(counter_s < baud_count-1) then

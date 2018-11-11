@@ -1,4 +1,4 @@
-architecture UARTrx_a of UARTrx_e is
+architecture uartrx_a of uartrx_e is
 
   signal data_o          : std_logic_vector(7 downto 0);
   signal paritydata_o    : std_logic;
@@ -14,7 +14,7 @@ architecture UARTrx_a of UARTrx_e is
 
   component shiftreg_e
     port (
-      RX_i         : in     std_logic;
+      rx_i         : in     std_logic;
       clk_i        : in     std_logic;
       data_o       : out    std_logic_vector(7 downto 0);
       en_i         : in     std_logic;
@@ -73,7 +73,7 @@ architecture UARTrx_a of UARTrx_e is
 
   component fsm_e
     port (
-      RX_i      : in     std_logic;
+      rx_i      : in     std_logic;
       clk_i     : in     std_logic;
       compare_o : out    std_logic;
       rb_i      : in     std_logic;
@@ -89,22 +89,22 @@ architecture UARTrx_a of UARTrx_e is
 
 begin
 
-  u0ShiftReg: shiftreg_e
+  u0shiftreg: shiftreg_e
     port map(
-      RX_i         => RX_i,
+      rx_i         => rx_i,
       clk_i        => clk_i,
       data_o       => data_o,
       en_i         => sren_o,
       paritydata_o => paritydata_o,
       rb_i         => rb_i);
 
-  u1ParityGen: pargen_e
+  u1paritygen: pargen_e
     port map(
       data_i        => data_o,
       en_i          => compare_o,
       paritycheck_o => paritycheck_o);
 
-  u2XNOR_en: xnoren_e
+  u2xnor_en: xnoren_e
     port map(
       a_i  => paritycheck_o,
       b_i  => paritydata_o,
@@ -134,7 +134,7 @@ begin
       q_o   => parity_o,
       rb_i  => rb_i);
 
-  u6ROM: rom_e
+  u6rom: rom_e
     port map(
       char_o   => char_o,
       clk_i    => clk_i,
@@ -156,9 +156,9 @@ begin
       en_i  => y_o,
       rb_i  => rb_i);
 
-  u9FSM: fsm_e
+  u9fsm: fsm_e
     port map(
-      RX_i      => RX_i,
+      rx_i      => rx_i,
       clk_i     => clk_i,
       compare_o => compare_o,
       rb_i      => rb_i,
@@ -179,4 +179,4 @@ begin
 	rb_o <= rb_i;
 	passsel_o(1) <= pass_sel(1);
 	passsel_o(0) <= pass_sel(0);
-end architecture UARTrx_a ; -- of UARTrx_e
+end architecture uartrx_a ; -- of uartrx_e

@@ -1,43 +1,43 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
  
-ENTITY div25meg_tb IS
-END div25meg_tb;
+entity div25meg_tb is
+end div25meg_tb;
  
-ARCHITECTURE behavior OF div25meg_tb IS 
+architecture behavior of div25meg_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT div25meg_e
-    PORT(
-         clk_i : IN  std_logic;
-         div_o : OUT  std_logic;
-         rb_i : IN  std_logic
+    component div25meg_e
+    port(
+         clk_i : in  std_logic;
+         div_o : out  std_logic;
+         rb_i : in  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal clk_i : std_logic := '0';
    signal rb_i : std_logic;
 
- 	--Outputs
+ 	--outputs
    signal div_o : std_logic;
 
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: div25meg_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: div25meg_e port map (
           clk_i => clk_i,
           div_o => div_o,
           rb_i => rb_i
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -47,7 +47,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
@@ -63,4 +63,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

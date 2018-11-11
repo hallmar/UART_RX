@@ -1,45 +1,41 @@
 architecture rom_a of rom_e is
 
-CONSTANT a: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(65, 8)); 
-CONSTANT b: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(66, 8)); 
-CONSTANT c: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(67, 8)); 
-CONSTANT d: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(68, 8)); 
-CONSTANT e: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(69, 8)); 
-CONSTANT f: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(70, 8)); 
-CONSTANT g: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(71, 8)); 
-CONSTANT h: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(72, 8));
-CONSTANT i: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(73, 8));  
-CONSTANT j: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(74, 8)); 
-CONSTANT k: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(75, 8)); 
-CONSTANT l: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(76, 8));
-CONSTANT m: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(77, 8)); 
-CONSTANT n: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(78, 8)); 
-CONSTANT o: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(79, 8));
-CONSTANT p: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(80, 8)); 
-CONSTANT q: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(81, 8));
-CONSTANT r: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(82, 8));
-CONSTANT s: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(83, 8));
-CONSTANT t: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(84, 8));     
-CONSTANT u: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(85, 8)); 
+constant a: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(65, 8)); 
+constant b: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(66, 8)); 
+constant c: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(67, 8)); 
+constant d: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(68, 8)); 
+constant e: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(69, 8)); 
+constant f: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(70, 8)); 
+constant g: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(71, 8)); 
+constant h: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(72, 8));
+constant i: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(73, 8));  
+constant j: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(74, 8)); 
+constant k: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(75, 8)); 
+constant l: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(76, 8));
+constant m: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(77, 8)); 
+constant n: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(78, 8)); 
+constant o: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(79, 8));
+constant p: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(80, 8)); 
+constant q: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(81, 8));
+constant r: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(82, 8));
+constant s: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(83, 8));
+constant t: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(84, 8));     
+constant u: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(85, 8)); 
 
-CONSTANT sp: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(32, 8));  --space
-CONSTANT cr: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(13, 8)); --carriage return
-CONSTANT lf: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(10, 8)); --line feed
-CONSTANT nu: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(00, 8));  --null
-CONSTANT noth: STD_LOGIC_VECTOR(7 downto 0) := "11111111";
+constant sp: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(32, 8));  --space
+constant cr: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(13, 8)); --carriage return
+constant lf: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(10, 8)); --line feed
+constant nu: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(00, 8));  --null
+constant noth: std_logic_vector(7 downto 0) := "11111111";
 
-Type state is (idle_state, s0,s1,s2,s3,s4,s5);
-SIGNAL pr_state, nx_state: state;
+type state is (s0,s1,s2,s3,s4,s5);
+signal pr_state, nx_state: state;
 begin
---Evaluate states
+--evaluate states
 	process(en_i, pr_state)
 	begin
 	nx_state <= pr_state;
 		case pr_state is
-			when idle_state =>
-				if(en_i = '1') then
-					nx_state <= s0;
-				end if;
 				
 			when s0 =>
 				if(en_i = '1') then
@@ -68,17 +64,17 @@ begin
 				
 			when s5 =>
 				if(en_i = '1') then
-					nx_state <= idle_state;
+					nx_state <= s0;
 				end if;
 			when others => 
 				if(en_i = '1') then
-					nx_state <= idle_state;
+					nx_state <= s0;
 			   end if;
 		end case;
 	end process;
 	
 -- output processing
-char_o<= noth when (pr_state = idle_state) else
+char_o<= 
 			-- password one
 			a  when (pr_state = s0)and(pass_sel="00")else
 			b  when (pr_state = s1)and(pass_sel="00")else
@@ -108,7 +104,7 @@ char_o<= noth when (pr_state = idle_state) else
 process(clk_i, rb_i)
 begin
 	if(rb_i ='0') then
-		pr_state <= idle_state;
+		pr_state <= s0;
 	elsif(rising_edge(clk_i)) then
 			pr_state <= nx_state;
 	end if;

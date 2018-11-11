@@ -1,74 +1,74 @@
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
  
 
-ENTITY UARTrx_tb IS
-END UARTrx_tb;
+entity uartrx_tb is
+end uartrx_tb;
  
-ARCHITECTURE behavior OF UARTrx_tb IS 
+architecture behavior of uartrx_tb is 
  
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT UARTrx_e
-    PORT(
-         RX_i : IN  std_logic;
-         clk_i : IN  std_logic;
-         heartb_o : OUT  std_logic;
-         parity_o : OUT  std_logic;
-         pass_o : OUT  std_logic;
-         pass_sel : IN  std_logic_vector(1 downto 0);
-         rb_i : IN  std_logic
+    component uartrx_e
+    port(
+         rx_i : in  std_logic;
+         clk_i : in  std_logic;
+         heartb_o : out  std_logic;
+         parity_o : out  std_logic;
+         pass_o : out  std_logic;
+         pass_sel : in  std_logic_vector(1 downto 0);
+         rb_i : in  std_logic
         );
-    END COMPONENT;
+    end component;
     
-	CONSTANT a: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(65, 9)); 
-	CONSTANT b: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(66, 9)); 
-	CONSTANT c: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(67+256,9)); 
-	CONSTANT d: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(68 ,9)); 
-	CONSTANT e: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(69+256,9)); 
-	CONSTANT f: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(70+256,9)); 
-	CONSTANT g: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(71,9)); 
-	CONSTANT h: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(72,9));
-	CONSTANT i: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(73+256,9));  
-	CONSTANT j: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(74+256,9)); 
-	CONSTANT k: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(75,9)); 
-	CONSTANT l: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(76+256,9));
-	CONSTANT m: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(77,9)); 
-	CONSTANT n: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(78,9)); 
-	CONSTANT o: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(79+256,9));
-	CONSTANT p: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(80,9)); 
-	CONSTANT q: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(81+256,9));
-	CONSTANT r: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(82+256,9));
-	CONSTANT s: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(83,9));
-	CONSTANT t: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(84+256,9));     
-	CONSTANT u: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(85,9)); 
+	constant a: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(65, 9)); 
+	constant b: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(66, 9)); 
+	constant c: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(67+256,9)); 
+	constant d: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(68 ,9)); 
+	constant e: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(69+256,9)); 
+	constant f: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(70+256,9)); 
+	constant g: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(71,9)); 
+	constant h: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(72,9));
+	constant i: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(73+256,9));  
+	constant j: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(74+256,9)); 
+	constant k: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(75,9)); 
+	constant l: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(76+256,9));
+	constant m: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(77,9)); 
+	constant n: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(78,9)); 
+	constant o: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(79+256,9));
+	constant p: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(80,9)); 
+	constant q: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(81+256,9));
+	constant r: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(82+256,9));
+	constant s: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(83,9));
+	constant t: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(84+256,9));     
+	constant u: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(85,9)); 
 
-	CONSTANT sp: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(32,9));  --space
-	CONSTANT cr: std_logic_vector(8 downto 0) := "100001101"; --carriage return
-	CONSTANT lf: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(10,9)); --line feed
-	CONSTANT nu: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(00,9));  --null
-   --Inputs
-   signal RX_i : std_logic := '1';
+	constant sp: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(32,9));  --space
+	constant cr: std_logic_vector(8 downto 0) := "100001101"; --carriage return
+	constant lf: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(10,9)); --line feed
+	constant nu: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(00,9));  --null
+   --inputs
+   signal rx_i : std_logic := '1';
    signal clk_i : std_logic := '0';
    signal pass_sel : std_logic_vector(1 downto 0) := (others => '0');
    signal rb_i : std_logic;
 	type fourdim is array (5 downto 0) of std_logic_vector(65 downto 0);
 	signal data_all : fourdim;
- 	--Outputs
+ 	--outputs
    signal heartb_o : std_logic;
    signal parity_o : std_logic;
    signal pass_o : std_logic;
 	signal sample_s: std_logic;
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: UARTrx_e PORT MAP (
-          RX_i => RX_i,
+	-- instantiate the unit under test (uut)
+   uut: uartrx_e port map (
+          rx_i => rx_i,
           clk_i => clk_i,
           heartb_o => heartb_o,
           parity_o => parity_o,
@@ -77,7 +77,7 @@ BEGIN
           rb_i => rb_i
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -87,7 +87,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin	
 	for i in 0 to 5 loop
@@ -162,7 +162,7 @@ BEGIN
 		rb_i <= '0';
 		wait for 100 ns;
 		rb_i <= '1';
-		for J in 0 to 5 loop
+		for j in 0 to 5 loop
 		
 			case j is
 				when 0 =>
@@ -181,10 +181,10 @@ BEGIN
 					pass_sel <= "00";
 			end case;
 			
-			for I in 0 to 65 loop
+			for i in 0 to 65 loop
 			wait for 52 us;
 			wait for 52 us;
-				RX_i <= data_all(J)(I);
+				rx_i <= data_all(j)(i);
 			end loop;
 				wait for 10 ns;
 					sample_s <= '1';
@@ -199,4 +199,4 @@ BEGIN
 		assert(false) severity failure;
    end process;
 
-END;
+end;

@@ -1,11 +1,12 @@
-library IEEE;
-use IEEE.STD_LOGIC_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
 entity dff_e is
-PORT(
-	d_i: IN std_logic;
-	clk_i: IN std_logic;
-	rb_i: IN std_logic;
-	en_i: IN std_logic;
-	q_o: OUT std_logic);
+port(
+	d_i: in std_logic;
+	clk_i: in std_logic;
+	rb_i: in std_logic;
+	en_i: in std_logic;
+	q_o: out std_logic
+	);
 end dff_e;

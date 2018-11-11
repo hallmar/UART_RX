@@ -1,0 +1,18 @@
+#Pinouts for our FPGA
+
+NET "clk_i" LOC = "C9";# | IOSTANDARD = LVCMOS33 ; 		#internal 50Mhz clock
+
+NET "rb_i" LOC = "N17";# | IOSTANDARD = LVTTL | PULLDOWN ; #Switch 3
+NET "rb_o" LOC = "F9"; #LED to show status of reset switch
+
+NET "pass_sel<0>" LOC = "L13" | IOSTANDARD = LVTTL | PULLUP; #password select switches
+NET "pass_sel<1>" LOC = "L14" | IOSTANDARD = LVTTL | PULLUP;
+NET "passsel_o<0>" LOC = "F12"; #| IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8; #LED 0
+NET "passsel_o<1>" LOC = "E12"; #| IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8; #LED 1
+
+NET "heartb_o" LOC = "E9"; #| IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "pass_o" LOC = "D11"; #| IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+NET "parity_o" LOC = "C11"; #| IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 8;
+
+# ==== RS-232 Serial Ports (RS232) ====
+NET "RX_i" LOC = "U8"; #| IOSTANDARD = LVTTL | DRIVE = 8 | SLEW = SLOW ;

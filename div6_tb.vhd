@@ -1,46 +1,46 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
  
-ENTITY div6_tb IS
-END div6_tb;
+entity div6_tb is
+end div6_tb;
  
-ARCHITECTURE behavior OF div6_tb IS 
+architecture behavior of div6_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT div6_e
-    PORT(
-         en_i : IN  std_logic;
-         clk_i : IN  std_logic;
-         rb_i : IN  std_logic;
-         c_o : OUT  std_logic
+    component div6_e
+    port(
+         en_i : in  std_logic;
+         clk_i : in  std_logic;
+         rb_i : in  std_logic;
+         c_o : out  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal en_i : std_logic;
    signal clk_i : std_logic;
    signal rb_i : std_logic;
-	--Output
+	--output
    signal c_o : std_logic;
 
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: div6_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: div6_e port map (
           en_i => en_i,
           clk_i => clk_i,
           rb_i => rb_i,
           c_o => c_o
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -50,7 +50,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
@@ -72,4 +72,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

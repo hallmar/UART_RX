@@ -1,47 +1,47 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY eightcomp_tb IS
-END eightcomp_tb;
+entity eightcomp_tb is
+end eightcomp_tb;
  
-ARCHITECTURE behavior OF eightcomp_tb IS 
+architecture behavior of eightcomp_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT eightcomp_e
-    PORT(
-         a_i : IN  std_logic_vector(7 downto 0);
-         b_i : IN  std_logic_vector(7 downto 0);
-         en_i : IN  std_logic;
-         y_o : OUT  std_logic
+    component eightcomp_e
+    port(
+         a_i : in  std_logic_vector(7 downto 0);
+         b_i : in  std_logic_vector(7 downto 0);
+         en_i : in  std_logic;
+         y_o : out  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal a_i : std_logic_vector(7 downto 0) := (others => '0');
    signal b_i : std_logic_vector(7 downto 0) := (others => '0');
    signal en_i : std_logic := '0';
 
- 	--Outputs
+ 	--outputs
    signal y_o : std_logic;
-   -- No clocks detected in port list. Replace <clock> below with 
+   -- no clocks detected in port list. replace <clock> below with 
    -- appropriate port name 
  
 
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: eightcomp_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: eightcomp_e port map (
           a_i => a_i,
           b_i => b_i,
           en_i => en_i,
           y_o => y_o
         );
  
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin	
 		en_i <= '0';
@@ -59,4 +59,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

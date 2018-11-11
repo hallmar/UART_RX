@@ -1,51 +1,51 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
  
-ENTITY fsm_tb IS
-END fsm_tb;
+entity fsm_tb is
+end fsm_tb;
  
-ARCHITECTURE behavior OF fsm_tb IS 
+architecture behavior of fsm_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT fsm_e
-    PORT(
-         RX_i : IN  std_logic;
-         clk_i : IN  std_logic;
-         compare_o : OUT  std_logic;
-         rb_i : IN  std_logic;
-         sren_o : OUT  std_logic
+    component fsm_e
+    port(
+         rx_i : in  std_logic;
+         clk_i : in  std_logic;
+         compare_o : out  std_logic;
+         rb_i : in  std_logic;
+         sren_o : out  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
-   signal RX_i : std_logic := '1';
+   --inputs
+   signal rx_i : std_logic := '1';
    signal clk_i : std_logic := '0';
    signal rb_i : std_logic;
 	
 
- 	--Outputs
+ 	--outputs
    signal compare_o : std_logic;
    signal sren_o : std_logic;
 
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: fsm_e PORT MAP (
-          RX_i => RX_i,
+	-- instantiate the unit under test (uut)
+   uut: fsm_e port map (
+          rx_i => rx_i,
           clk_i => clk_i,
           compare_o => compare_o,
           rb_i => rb_i,
           sren_o => sren_o
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -55,7 +55,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
@@ -64,17 +64,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 		wait for 100 ns;	
@@ -82,17 +82,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 		wait for 100 ns;	
@@ -100,17 +100,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 		wait for 100 ns;	
@@ -118,17 +118,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 		wait for 100 ns;	
@@ -136,17 +136,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 		wait for 100 ns;	
@@ -154,17 +154,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 	   wait for 100 ns;	
@@ -172,17 +172,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		
 	   wait for 100 ns;	
@@ -190,17 +190,17 @@ BEGIN
 		wait for 190 ns;
 		rb_i <= '1';
 		wait for  104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 520 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 104 us;
-		RX_i <= '0';
+		rx_i <= '0';
 		wait for 104 us;
-		RX_i <= '1';
+		rx_i <= '1';
 		wait for 208 us;
 		wait for 100 us;
 		assert(false) severity failure;
@@ -209,4 +209,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

@@ -1,44 +1,44 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
  
-ENTITY pargen_tb IS
-END pargen_tb;
+entity pargen_tb is
+end pargen_tb;
  
-ARCHITECTURE behavior OF pargen_tb IS 
+architecture behavior of pargen_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT pargen_e
-    PORT(
-         data_i : IN  std_logic_vector(7 downto 0);
-         paritycheck_o : OUT  std_logic
+    component pargen_e
+    port(
+         data_i : in  std_logic_vector(7 downto 0);
+         paritycheck_o : out  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal data_i : std_logic_vector(7 downto 0);
 
- 	--Outputs
+ 	--outputs
    signal paritycheck_o : std_logic;
-   -- No clocks detected in port list. Replace <clock> below with 
+   -- no clocks detected in port list. replace <clock> below with 
    -- appropriate port name 
  
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: pargen_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: pargen_e port map (
           data_i => data_i,
           paritycheck_o => paritycheck_o
         );
 
-   -- Clock process definitions
+   -- clock process definitions
 
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
@@ -55,4 +55,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

@@ -1,44 +1,44 @@
 
 --------------------------------------------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
  
 
  
-ENTITY dff_tb IS
-END dff_tb;
+entity dff_tb is
+end dff_tb;
  
-ARCHITECTURE behavior OF dff_tb IS 
+architecture behavior of dff_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT dff_e
-    PORT(
-         d_i : IN  std_logic;
-         clk_i : IN  std_logic;
-         rb_i : IN  std_logic;
-         en_i : IN  std_logic;
-         q_o : OUT  std_logic
+    component dff_e
+    port(
+         d_i : in  std_logic;
+         clk_i : in  std_logic;
+         rb_i : in  std_logic;
+         en_i : in  std_logic;
+         q_o : out  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal d_i : std_logic := '0';
    signal clk_i : std_logic := '0';
    signal rb_i : std_logic := '1';
    signal en_i : std_logic := '0';
 
- 	--Outputs
+ 	--outputs
    signal q_o : std_logic;
 
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: dff_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: dff_e port map (
           d_i => d_i,
           clk_i => clk_i,
           rb_i => rb_i,
@@ -46,7 +46,7 @@ BEGIN
           q_o => q_o
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -56,7 +56,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
 		wait for 10 ns; --hold an 'uncertain' state for 10ns
@@ -83,4 +83,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;

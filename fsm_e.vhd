@@ -4,7 +4,7 @@ use ieee.numeric_std.all;
 
 entity fsm_e is
   port (
-    RX_i      : in     std_logic;
+    rx_i      : in     std_logic;
     clk_i     : in     std_logic;
     compare_o : out    std_logic;
     rb_i      : in     std_logic;

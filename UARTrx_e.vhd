@@ -1,9 +1,9 @@
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity UARTrx_e is
+entity uartrx_e is
   port (
-    RX_i     : in     std_logic;
+    rx_i     : in     std_logic;
     clk_i    : in     std_logic;
     heartb_o : out    std_logic;
     parity_o : out    std_logic;
@@ -13,4 +13,4 @@ entity UARTrx_e is
 	rb_o     : out	 std_logic;
 	passsel_o : out	 std_logic_vector(1 downto 0)
 	 );
-end entity UARTrx_e;
+end entity uartrx_e;

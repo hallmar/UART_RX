@@ -1,41 +1,41 @@
 
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+library ieee;
+use ieee.std_logic_1164.all;
 
-ENTITY rom_tb IS
-END rom_tb;
+entity rom_tb is
+end rom_tb;
  
-ARCHITECTURE behavior OF rom_tb IS 
+architecture behavior of rom_tb is 
  
-    -- Component Declaration for the Unit Under Test (UUT)
+    -- component declaration for the unit under test (uut)
  
-    COMPONENT rom_e
-    PORT(
-         char_o : OUT  std_logic_vector(7 downto 0);
-         clk_i : IN  std_logic;
-         en_i : IN  std_logic;
-         pass_sel : IN  std_logic_vector(1 downto 0);
-         rb_i : IN  std_logic
+    component rom_e
+    port(
+         char_o : out  std_logic_vector(7 downto 0);
+         clk_i : in  std_logic;
+         en_i : in  std_logic;
+         pass_sel : in  std_logic_vector(1 downto 0);
+         rb_i : in  std_logic
         );
-    END COMPONENT;
+    end component;
     
 
-   --Inputs
+   --inputs
    signal clk_i : std_logic := '0';
    signal en_i : std_logic := '0';
    signal pass_sel : std_logic_vector(1 downto 0) := (others => '0');
    signal rb_i : std_logic;
 
- 	--Outputs
+ 	--outputs
    signal char_o : std_logic_vector(7 downto 0);
 
-   -- Clock period definitions
+   -- clock period definitions
    constant clk_i_period : time := 20 ns;
  
-BEGIN
+begin
  
-	-- Instantiate the Unit Under Test (UUT)
-   uut: rom_e PORT MAP (
+	-- instantiate the unit under test (uut)
+   uut: rom_e port map (
           char_o => char_o,
           clk_i => clk_i,
           en_i => en_i,
@@ -43,7 +43,7 @@ BEGIN
           rb_i => rb_i
         );
 
-   -- Clock process definitions
+   -- clock process definitions
    clk_i_process :process
    begin
 		clk_i <= '0';
@@ -53,7 +53,7 @@ BEGIN
    end process;
  
 
-   -- Stimulus process
+   -- stimulus process
    stim_proc: process
    begin		
       -- hold reset state for 100 ns.
@@ -64,10 +64,11 @@ BEGIN
 		rb_i <= '1';
 		en_i <= '1';
 		wait for 140 ns;
-		
+		rb_i <= '0';
 		en_i <= '0';
 		pass_sel <= "01";
 		wait for 20 ns;
+		rb_i <= '1';
 		en_i <= '1';
 		wait for 140 ns;
 		
@@ -92,4 +93,4 @@ BEGIN
       wait;
    end process;
 
-END;
+end;
