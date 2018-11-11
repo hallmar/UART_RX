@@ -15,6 +15,7 @@ ARCHITECTURE behavior OF fsm_tb IS
          RX_i : IN  std_logic;
          clk_i : IN  std_logic;
          compare_o : OUT  std_logic;
+			nxt_o: OUT std_logic;
          rb_i : IN  std_logic;
          sren_o : OUT  std_logic
         );
@@ -25,10 +26,12 @@ ARCHITECTURE behavior OF fsm_tb IS
    signal RX_i : std_logic := '1';
    signal clk_i : std_logic := '0';
    signal rb_i : std_logic;
+	
 
  	--Outputs
    signal compare_o : std_logic;
    signal sren_o : std_logic;
+	signal nxt_o: std_logic;
 
    -- Clock period definitions
    constant clk_i_period : time := 20 ns;
@@ -40,6 +43,7 @@ BEGIN
           RX_i => RX_i,
           clk_i => clk_i,
           compare_o => compare_o,
+			 nxt_o => nxt_o,
           rb_i => rb_i,
           sren_o => sren_o
         );
@@ -59,6 +63,132 @@ BEGIN
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+		wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+		wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+		wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+		wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+		wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+	   wait for 100 ns;	
+		rb_i <= '0';
+		wait for 190 ns;
+		rb_i <= '1';
+		wait for  104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 520 us;
+		RX_i <= '1';
+		wait for 104 us;
+		RX_i <= '0';
+		wait for 104 us;
+		RX_i <= '1';
+		wait for 208 us;
+		
+	   wait for 100 ns;	
 		rb_i <= '0';
 		wait for 190 ns;
 		rb_i <= '1';
