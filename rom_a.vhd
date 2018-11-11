@@ -28,7 +28,7 @@ CONSTANT lf: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(10, 8)
 CONSTANT nu: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(00, 8));  --null
 CONSTANT noth: STD_LOGIC_VECTOR(7 downto 0) := "11111111";
 
-Type state is (reset_state, s0,s1,s2,s3,s4,s5);
+Type state is (idle_state, s0,s1,s2,s3,s4,s5);
 SIGNAL pr_state, nx_state: state;
 begin
 --Evaluate states
@@ -36,7 +36,7 @@ begin
 	begin
 	nx_state <= pr_state;
 		case pr_state is
-			when reset_state =>
+			when idle_state =>
 				if(en_i = '1') then
 					nx_state <= s0;
 				end if;
@@ -68,47 +68,49 @@ begin
 				
 			when s5 =>
 				if(en_i = '1') then
-					nx_state <= reset_state;
+					nx_state <= idle_state;
 				end if;
 			when others => 
-				nx_state <= reset_state;
+				if(en_i = '1') then
+					nx_state <= idle_state;
+			   end if;
 		end case;
 	end process;
 	
 -- output processing
-char_o<= nu when (pr_state = reset_state) else
+char_o<= noth when (pr_state = idle_state) else
 			-- password one
-			a  when (pr_state = s0)and(pass_sel="00") else
-			b  when (pr_state = s1)and(pass_sel="00") else
-			c  when (pr_state = s2)and(pass_sel="00") else
-			d  when (pr_state = s3)and(pass_sel="00") else
+			a  when (pr_state = s0)and(pass_sel="00")else
+			b  when (pr_state = s1)and(pass_sel="00")else
+			c  when (pr_state = s2)and(pass_sel="00")else
+			d  when (pr_state = s3)and(pass_sel="00")else
 			-- password two
-			e  when (pr_state = s0)and(pass_sel="01") else
-			f  when (pr_state = s1)and(pass_sel="01") else
-			g  when (pr_state = s2)and(pass_sel="01") else
-			h  when (pr_state = s3)and(pass_sel="01") else
+			e  when (pr_state = s0)and(pass_sel="01")else
+			f  when (pr_state = s1)and(pass_sel="01")else
+			g  when (pr_state = s2)and(pass_sel="01")else
+			h  when (pr_state = s3)and(pass_sel="01")else
 			-- password three
-			i  when (pr_state = s0)and(pass_sel="10") else
-			j  when (pr_state = s1)and(pass_sel="10") else
-			k  when (pr_state = s2)and(pass_sel="10") else
-			l  when (pr_state = s3)and(pass_sel="10") else
+			i  when (pr_state = s0)and(pass_sel="10")else
+			j  when (pr_state = s1)and(pass_sel="10")else
+			k  when (pr_state = s2)and(pass_sel="10")else
+			l  when (pr_state = s3)and(pass_sel="10")else
 			-- password four
-			m  when (pr_state = s0)and(pass_sel="11") else
-			n  when (pr_state = s1)and(pass_sel="11") else
-			o  when (pr_state = s2)and(pass_sel="11") else
-			p  when (pr_state = s3)and(pass_sel="11") else
+			m  when (pr_state = s0)and(pass_sel="11")else
+			n  when (pr_state = s1)and(pass_sel="11")else
+			o  when (pr_state = s2)and(pass_sel="11")else
+			p  when (pr_state = s3)and(pass_sel="11")else
 			
 			cr when pr_state = s4 else
 			lf when pr_state = s5 else
-			nu;
+			noth;
 			
 -- clock states
 process(clk_i, rb_i)
 begin
 	if(rb_i ='0') then
-		pr_state <= reset_state;
+		pr_state <= idle_state;
 	elsif(rising_edge(clk_i)) then
-		pr_state <= nx_state;
+			pr_state <= nx_state;
 	end if;
 end process;
 
