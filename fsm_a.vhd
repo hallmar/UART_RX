@@ -3,7 +3,7 @@ type state is (reset_state, startbit_state ,sample_state ,stopbit_state, cleanup
 signal pr_state: state := reset_state;
 signal counter_s: integer range 0 to 10417 := 0; --counter for the sample timing
 signal bit_index_s: integer range 0 to 8 := 0; --9 bits of data
-signal sren_s, compare_s, next_s: std_logic := '0';
+signal sren_s, compare_s: std_logic := '0';
 signal char_index_s: integer range 0 to 5 := 0;
 
 constant baud_count: integer := 5208;
@@ -19,7 +19,6 @@ begin
 		case pr_state is
 ------------------idle/reset state--------------------
 			when reset_state =>
-				next_s <= '0';
 				counter_s <= 0;
 				bit_index_s <= 0;
 				sren_s <= '0';
@@ -35,9 +34,6 @@ begin
 				if(counter_s = halfbaud_count-1) then
 					if(RX_i = '0') then
 						counter_s <= 0;
-						if(char_index_s = 0) then
-							next_s <= '1';
-						end if;
 						pr_state <= sample_state;
 					else
 						pr_state <= reset_state;
@@ -49,7 +45,6 @@ begin
 ------------------sample state--------------------				
 			when sample_state =>
 			sren_s <= '0';
-			next_s <= '0';
 				if(counter_s < baud_count-1) then
 					counter_s <= counter_s +1;
 					pr_state <= sample_state;
@@ -72,7 +67,6 @@ begin
 					pr_state <= stopbit_state;
 				else
 					compare_s <= '1';
-					
 					counter_s <= 0;
 					pr_state <= cleanup_state;
 				end if;
@@ -80,7 +74,7 @@ begin
 			when cleanup_state =>
 				pr_state <= reset_state;
 				compare_s <= '0';
-				next_s <= '1';
+	
 				if(char_index_s < 5) then
 					char_index_s <= char_index_s+1;
 				else
@@ -98,7 +92,7 @@ begin
 --process output
 sren_o <= sren_s;
 compare_o <= compare_s;
-nxt_o <= next_s;
+
 
 
 --clock dividers
