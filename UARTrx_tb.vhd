@@ -23,44 +23,44 @@ ARCHITECTURE behavior OF UARTrx_tb IS
         );
     END COMPONENT;
     
-	CONSTANT a: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(65, 8)); 
-	CONSTANT b: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(66, 8)); 
-	CONSTANT c: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(67, 8)); 
-	CONSTANT d: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(68, 8)); 
-	CONSTANT e: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(69, 8)); 
-	CONSTANT f: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(70, 8)); 
-	CONSTANT g: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(71, 8)); 
-	CONSTANT h: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(72, 8));
-	CONSTANT i: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(73, 8));  
-	CONSTANT j: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(74, 8)); 
-	CONSTANT k: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(75, 8)); 
-	CONSTANT l: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(76, 8));
-	CONSTANT m: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(77, 8)); 
-	CONSTANT n: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(78, 8)); 
-	CONSTANT o: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(79, 8));
-	CONSTANT p: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(80, 8)); 
-	CONSTANT q: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(81, 8));
-	CONSTANT r: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(82, 8));
-	CONSTANT s: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(83, 8));
-	CONSTANT t: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(84, 8));     
-	CONSTANT u: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(85, 8)); 
+	CONSTANT a: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(65, 9)); 
+	CONSTANT b: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(66, 9)); 
+	CONSTANT c: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(67+256,9)); 
+	CONSTANT d: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(68 ,9)); 
+	CONSTANT e: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(69+256,9)); 
+	CONSTANT f: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(70+256,9)); 
+	CONSTANT g: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(71,9)); 
+	CONSTANT h: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(72,9));
+	CONSTANT i: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(73+256,9));  
+	CONSTANT j: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(74+256,9)); 
+	CONSTANT k: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(75,9)); 
+	CONSTANT l: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(76+256,9));
+	CONSTANT m: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(77,9)); 
+	CONSTANT n: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(78,9)); 
+	CONSTANT o: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(79+256,9));
+	CONSTANT p: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(80,9)); 
+	CONSTANT q: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(81+256,9));
+	CONSTANT r: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(82+256,9));
+	CONSTANT s: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(83,9));
+	CONSTANT t: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(84+256,9));     
+	CONSTANT u: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(85,9)); 
 
-	CONSTANT sp: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(32, 8));  --space
-	CONSTANT cr: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(13, 8)); --carriage return
-	CONSTANT lf: std_logic_vector(7 downto 0) := std_logic_vector(to_unsigned(10, 8)); --line feed
-	CONSTANT nu: STD_LOGIC_VECTOR(7 downto 0) := std_logic_vector(to_unsigned(00, 8));  --null
+	CONSTANT sp: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(32,9));  --space
+	CONSTANT cr: std_logic_vector(8 downto 0) := "100001101"; --carriage return
+	CONSTANT lf: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(10,9)); --line feed
+	CONSTANT nu: STD_LOGIC_VECTOR(8 downto 0) := std_logic_vector(to_unsigned(00,9));  --null
    --Inputs
    signal RX_i : std_logic := '1';
    signal clk_i : std_logic := '0';
    signal pass_sel : std_logic_vector(1 downto 0) := (others => '0');
    signal rb_i : std_logic;
-	signal data_s: std_logic_vector(8 downto 0);
-	
+	type fourdim is array (5 downto 0) of std_logic_vector(65 downto 0);
+	signal data_all : fourdim;
  	--Outputs
    signal heartb_o : std_logic;
    signal parity_o : std_logic;
    signal pass_o : std_logic;
-
+	signal sample_s: std_logic;
    -- Clock period definitions
    constant clk_i_period : time := 20 ns;
  
@@ -90,264 +90,112 @@ BEGIN
    -- Stimulus process
    stim_proc: process
    begin	
+	for i in 0 to 5 loop
+		data_all(i)(0) <= '0';--start
+		data_all(i)(10) <= '1';--stop
+		data_all(i)(11) <= '0';--start
+		data_all(i)(21) <= '1';--stop
+		data_all(i)(22) <= '0';--start
+		data_all(i)(32) <= '1';--stop
+		data_all(i)(33) <= '0';--start
+		data_all(i)(43) <= '1';--stop
+		data_all(i)(44) <= '0'; --start
+		data_all(i)(54) <= '1'; --stop
+		data_all(i)(55) <='0';--start
+		data_all(i)(65) <= '1';--stop
+	end loop;
+	--password 1
+	data_all(0)(9 downto 1) <= a;
+	data_all(0)(20 downto 12) <= b;
+	data_all(0)(31 downto 23) <= c;
+	data_all(0)(42 downto 34) <= d;
+	data_all(0)(53 downto 45) <= cr;
+	data_all(0)(64 downto 56) <= lf;
+	--password 2
+	data_all(1)(9 downto 1) <= e;
+	data_all(1)(20 downto 12) <= f;
+	data_all(1)(31 downto 23) <= g;
+	data_all(1)(42 downto 34) <= h;
+	data_all(1)(53 downto 45) <= cr;
+	data_all(1)(64 downto 56) <= lf;
+	--password 3
+	data_all(2)(9 downto 1) <= i;
+	data_all(2)(20 downto 12) <= j;
+	data_all(2)(31 downto 23) <= k;
+	data_all(2)(42 downto 34) <= l;
+	data_all(2)(53 downto 45) <= cr;
+	data_all(2)(64 downto 56) <= lf;
+	--password 4
+	data_all(3)(9 downto 1) <= m;
+	data_all(3)(20 downto 12) <= n;
+	data_all(3)(31 downto 23) <= o;
+	data_all(3)(42 downto 34) <= p;
+	data_all(3)(53 downto 45) <= cr;
+	data_all(3)(64 downto 56) <= lf;
+
+	--wrong parity
+	data_all(4)(9 downto 1) <= m;
+	data_all(4)(20 downto 12) <= n;
+	data_all(4)(20) <= '1'; --insert wrong parity bit for n
+	data_all(4)(31 downto 23) <= o;
+	data_all(4)(42 downto 34) <= p;
+	data_all(4)(53 downto 45) <= cr;
+	data_all(4)(64 downto 56) <= lf;
+	
+	--wrong password 
+   data_all(5)(9 downto 1) <= m;
+	data_all(5)(20 downto 12) <= n;
+	data_all(5)(20) <= '0';
+	data_all(5)(31 downto 23) <= r;
+	data_all(5)(42 downto 34) <= p;
+	data_all(5)(53 downto 45) <= cr;
+	data_all(5)(64 downto 56) <= lf;
+
+
+	
+	------------------------------------------------------------
 	----------password 1--------------	
+	------------------------------------------------------------
 	--first character
-		data_s(7 downto 0) <= a;
-		data_s(8) <= '0';	
       -- hold reset state for 100 ns.
       wait for 100 ns;	
 		rb_i <= '0';
 		wait for 100 ns;
 		rb_i <= '1';
-		wait for 104 us;
-		RX_i <= '0';
+		for J in 0 to 5 loop
 		
-		for I in 0 to 8 loop
+			case j is
+				when 0 =>
+					pass_sel <= "00";
+				when 1 =>
+					pass_sel <= "01";
+				when 2 =>
+					pass_sel <= "10";
+				when 3 =>
+					pass_sel <= "11";
+				when 4 =>
+					pass_sel <= "11";
+				when 5 =>
+					pass_sel <= "11";
+				when others =>
+					pass_sel <= "00";
+			end case;
+			
+			for I in 0 to 65 loop
+			wait for 52 us;
+			wait for 52 us;
+				RX_i <= data_all(J)(I);
+			end loop;
+				wait for 10 ns;
+					sample_s <= '1';
+				wait for 10 ns;
+					sample_s <= '0';
 			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	--second character
-		data_s(7 downto 0) <= b;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
+			rb_i <= '0';
 			wait for 104 us;
-			RX_i <= data_s(I);
+			rb_i <= '1';
 		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-
-	--third character
-		data_s(7 downto 0) <= c;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fourth character
-		data_s(7 downto 0) <= d;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fifth character
-		data_s(7 downto 0) <= cr;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-		--sixth character
-		data_s(7 downto 0) <= lf;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		wait for 104 us;
-----------password 1 with wrong parity--------------	
-		--first character
-		data_s(7 downto 0) <= a;
-		data_s(8) <= '0';
-		 wait for 100 ns;	
-		rb_i <= '0';
-		wait for 100 ns;
-		rb_i <= '1';
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	--second character
-		data_s(7 downto 0) <= b;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-
-	--third character
-		data_s(7 downto 0) <= c;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fourth character
-		data_s(7 downto 0) <= d;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fifth character
-		data_s(7 downto 0) <= cr;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-		--sixth character
-		data_s(7 downto 0) <= lf;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		wait for 104 us;
-	  
-	  ----------password 1 with wrong password--------------	
-		--first character
-		data_s(7 downto 0) <= a;
-		data_s(8) <= '0';
-		 wait for 100 ns;	
-		rb_i <= '0';
-		wait for 100 ns;
-		rb_i <= '1';
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	--second character
-		data_s(7 downto 0) <= b;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-
-	--third character
-		data_s(7 downto 0) <= c;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fourth character
-		data_s(7 downto 0) <= e;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-	   --fifth character
-		data_s(7 downto 0) <= cr;
-		data_s(8) <= '1'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		
-		--sixth character
-		data_s(7 downto 0) <= lf;
-		data_s(8) <= '0'; --parity bit	
-      -- hold reset state for 100 ns.
-		wait for 104 us;
-		RX_i <= '0';
-		for I in 0 to 8 loop
-			wait for 104 us;
-			RX_i <= data_s(I);
-		end loop;
-		wait for 104 us;
-		RX_i <= '1';
-		wait for 104 us;
-		
+		wait for 100 us;
 		assert(false) severity failure;
    end process;
 
