@@ -15,7 +15,6 @@ ARCHITECTURE behavior OF fsm_tb IS
          RX_i : IN  std_logic;
          clk_i : IN  std_logic;
          compare_o : OUT  std_logic;
-			nxt_o: OUT std_logic;
          rb_i : IN  std_logic;
          sren_o : OUT  std_logic
         );
@@ -31,7 +30,6 @@ ARCHITECTURE behavior OF fsm_tb IS
  	--Outputs
    signal compare_o : std_logic;
    signal sren_o : std_logic;
-	signal nxt_o: std_logic;
 
    -- Clock period definitions
    constant clk_i_period : time := 20 ns;
@@ -43,7 +41,6 @@ BEGIN
           RX_i => RX_i,
           clk_i => clk_i,
           compare_o => compare_o,
-			 nxt_o => nxt_o,
           rb_i => rb_i,
           sren_o => sren_o
         );
