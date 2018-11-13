@@ -23,27 +23,61 @@ architecture behavior of uartrx_tb is
         );
     end component;
     
-	constant a: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(65, 9)); 
-	constant b: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(66, 9)); 
-	constant c: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(67+256,9)); 
-	constant d: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(68 ,9)); 
-	constant e: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(69+256,9)); 
-	constant f: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(70+256,9)); 
-	constant g: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(71,9)); 
-	constant h: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(72,9));
-	constant i: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(73+256,9));  
-	constant j: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(74+256,9)); 
-	constant k: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(75,9)); 
-	constant l: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(76+256,9));
-	constant m: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(77,9)); 
-	constant n: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(78,9)); 
-	constant o: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(79+256,9));
-	constant p: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(80,9)); 
-	constant q: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(81+256,9));
-	constant r: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(82+256,9));
-	constant s: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(83,9));
-	constant t: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(84+256,9));     
-	constant u: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(85,9)); 
+	--lowercase With even parity
+	constant a: std_logic_vector(8 downto 0) := "101100001"; 
+	constant b: std_logic_vector(8 downto 0) := "101100010"; 
+	constant c: std_logic_vector(8 downto 0) := "001100011"; 
+	constant d: std_logic_vector(8 downto 0) := "101100100"; 
+	constant e: std_logic_vector(8 downto 0) := "001100101"; 
+	constant f: std_logic_vector(8 downto 0) := "001100110"; 
+	constant g: std_logic_vector(8 downto 0) := "101100111"; 
+	constant h: std_logic_vector(8 downto 0) := "101101000";	
+	constant i: std_logic_vector(8 downto 0) := "001101001";  
+	constant j: std_logic_vector(8 downto 0) := "001101010"; 
+	constant k: std_logic_vector(8 downto 0) := "101101011"; 
+	constant l: std_logic_vector(8 downto 0) := "001101100";
+	constant m: std_logic_vector(8 downto 0) := "101101101"; 
+	constant n: std_logic_vector(8 downto 0) := "101101110"; 
+	constant o: std_logic_vector(8 downto 0) := "001101111";
+	constant p: std_logic_vector(8 downto 0) := "101110000"; 
+	constant q: std_logic_vector(8 downto 0) := "001110001";
+	constant r: std_logic_vector(8 downto 0) := "001110010";
+	constant s: std_logic_vector(8 downto 0) := "101110011";
+	constant t: std_logic_vector(8 downto 0) := "001110100";     
+	constant u: std_logic_vector(8 downto 0) := "101110101";
+	constant v: std_logic_vector(8 downto 0) := "101110110";
+	constant w: std_logic_vector(8 downto 0) := "001110111";
+	constant x: std_logic_vector(8 downto 0) := "001111000";
+	constant y: std_logic_vector(8 downto 0) := "101111001";
+	constant z: std_logic_vector(8 downto 0) := "101111010";
+	
+	--With even parity
+	constant upp_a: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(65, 9)); 
+	constant upp_b: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(66, 9)); 
+	constant upp_c: std_logic_vector(8 downto 0) := "101000011"; 
+	constant upp_d: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(68 ,9)); 
+	constant upp_e: std_logic_vector(8 downto 0) := "101000101"; 
+	constant upp_f: std_logic_vector(8 downto 0) := "101000110"; 
+	constant upp_g: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(71,9)); 
+	constant upp_h: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(72,9));
+	constant upp_i: std_logic_vector(8 downto 0) := "101001001";  
+	constant upp_j: std_logic_vector(8 downto 0) := "101001010"; 
+	constant upp_k: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(75,9)); 
+	constant upp_l: std_logic_vector(8 downto 0) := "101001100";
+	constant upp_m: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(77,9)); 
+	constant upp_n: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(78,9)); 
+	constant upp_o: std_logic_vector(8 downto 0) := "101001111";
+	constant upp_p: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(80,9)); 
+	constant upp_q: std_logic_vector(8 downto 0) := "101010001";
+	constant upp_r: std_logic_vector(8 downto 0) := "101010010";
+	constant upp_s: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(83,9));
+	constant upp_t: std_logic_vector(8 downto 0) := "101010100";     
+	constant upp_u: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(85,9)); 
+	constant upp_v: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(86,9)); 
+	constant upp_w: std_logic_vector(8 downto 0) := "101010111"; 
+	constant upp_x: std_logic_vector(8 downto 0) := "101011000"; 
+	constant upp_y: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(89,9)); 
+	constant upp_z: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(90,9)); 
 
 	constant sp: std_logic_vector(8 downto 0) := std_logic_vector(to_unsigned(32,9));  --space
 	constant cr: std_logic_vector(8 downto 0) := "100001101"; --carriage return
@@ -136,7 +170,7 @@ begin
 	--wrong parity
 	data_all(4)(9 downto 1) <= m;
 	data_all(4)(20 downto 12) <= n;
-	data_all(4)(20) <= '1'; --insert wrong parity bit for n
+	data_all(4)(20) <= '0'; --insert wrong parity bit for n
 	data_all(4)(31 downto 23) <= o;
 	data_all(4)(42 downto 34) <= p;
 	data_all(4)(53 downto 45) <= cr;
@@ -145,7 +179,7 @@ begin
 	--wrong password 
    data_all(5)(9 downto 1) <= m;
 	data_all(5)(20 downto 12) <= n;
-	data_all(5)(20) <= '0';
+	data_all(5)(20) <= '1';
 	data_all(5)(31 downto 23) <= r;
 	data_all(5)(42 downto 34) <= p;
 	data_all(5)(53 downto 45) <= cr;
