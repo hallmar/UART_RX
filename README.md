@@ -50,5 +50,5 @@ Always follow names of inputs and outputs of blocks from blockdiagram
 
 - [x] 1 bit compare **(xnoren)**
 
-- [ ] 1 bit compare testbench
+- [x] 1 bit compare testbench
 
