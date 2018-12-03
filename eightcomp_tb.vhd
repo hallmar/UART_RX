@@ -20,12 +20,12 @@ architecture behavior of eightcomp_tb is
     
 
    --inputs
-   signal a_i : std_logic_vector(7 downto 0) := (others => '0');
-   signal b_i : std_logic_vector(7 downto 0) := (others => '0');
-   signal en_i : std_logic := '0';
+   signal a_s : std_logic_vector(7 downto 0) := (others => '0');
+   signal b_s : std_logic_vector(7 downto 0) := (others => '0');
+   signal en_s : std_logic := '0';
 
  	--outputs
-   signal y_o : std_logic;
+   signal y_s : std_logic;
    -- no clocks detected in port list. replace <clock> below with 
    -- appropriate port name 
  
@@ -35,24 +35,24 @@ begin
  
 	-- instantiate the unit under test (uut)
    uut: eightcomp_e port map (
-          a_i => a_i,
-          b_i => b_i,
-          en_i => en_i,
-          y_o => y_o
+          a_i => a_s,
+          b_i => b_s,
+          en_i => en_s,
+          y_o => y_s
         );
  
    -- stimulus process
    stim_proc: process
    begin	
-		en_i <= '0';
-      a_i <= "01010011";
-		b_i <= "01011011";
+		en_s <= '0';
+      a_s <= "01010011";
+		b_s <= "01011011";
       wait for 100 ns;	
-		en_i <= '1';
+		en_s <= '1';
       wait for 100 ns;
-		b_i <= "01010011";
+		b_s <= "01010011";
 		wait for 100 ns;
-		en_i <= '0';
+		en_s <= '0';
 		wait for 100 ns;
 	   assert(false) severity failure;
 

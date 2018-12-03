@@ -18,10 +18,10 @@ architecture behavior of pargen_tb is
     
 
    --inputs
-   signal data_i : std_logic_vector(7 downto 0);
+   signal data_s : std_logic_vector(7 downto 0);
 
  	--outputs
-   signal paritycheck_o : std_logic;
+   signal paritycheck_s : std_logic;
    -- no clocks detected in port list. replace <clock> below with 
    -- appropriate port name 
  
@@ -30,8 +30,8 @@ begin
  
 	-- instantiate the unit under test (uut)
    uut: pargen_e port map (
-          data_i => data_i,
-          paritycheck_o => paritycheck_o
+          data_i => data_s,
+          paritycheck_o => paritycheck_s
         );
 
    -- clock process definitions
@@ -43,9 +43,9 @@ begin
    begin		
       -- hold reset state for 100 ns.
       wait for 10 ns;	
-		data_i <= "01100110";
+		data_s <= "01100110";
 		wait for 10 ns;
-		data_i <= "01110110";
+		data_s <= "01110110";
 		wait for 10 ns;
 		assert(false) severity failure;
 

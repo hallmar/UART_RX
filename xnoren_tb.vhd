@@ -6,7 +6,7 @@ entity xnoren_tb_e is
 end entity xnoren_tb_e;
 
 architecture xnoren_tb_a of xnoren_tb_e is 
-component as_xnoren_e
+component xnoren_e
 	port (
 		a_i:in	std_logic;
 		b_i:in std_logic;
@@ -18,7 +18,7 @@ end component;
 signal a_s, b_s, en_s, y_s : std_logic;
 
 begin
-	DUT : as_xnoren_e port map (a_s, b_s, en_s, y_s);
+	DUT : xnoren_e port map (a_i=>a_s, b_i=>b_s, en_i=>en_s, y_o=>y_s);
 
 process
 	begin

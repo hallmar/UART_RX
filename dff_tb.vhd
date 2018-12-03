@@ -24,10 +24,10 @@ architecture behavior of dff_tb is
     
 
    --inputs
-   signal d_i : std_logic := '0';
-   signal clk_i : std_logic := '0';
-   signal rb_i : std_logic := '1';
-   signal en_i : std_logic := '0';
+   signal d_s : std_logic := '0';
+   signal clk_s : std_logic := '0';
+   signal rb_s : std_logic := '1';
+   signal en_s : std_logic := '0';
 
  	--outputs
    signal q_o : std_logic;
@@ -39,19 +39,19 @@ begin
  
 	-- instantiate the unit under test (uut)
    uut: dff_e port map (
-          d_i => d_i,
-          clk_i => clk_i,
-          rb_i => rb_i,
-          en_i => en_i,
+          d_i => d_s,
+          clk_i => clk_s,
+          rb_i => rb_s,
+          en_i => en_s,
           q_o => q_o
         );
 
    -- clock process definitions
    clk_i_process :process
    begin
-		clk_i <= '0';
+		clk_s <= '0';
 		wait for clk_i_period/2;
-		clk_i <= '1';
+		clk_s <= '1';
 		wait for clk_i_period/2;
    end process;
  
@@ -60,21 +60,21 @@ begin
    stim_proc: process
    begin		
 		wait for 10 ns; --hold an 'uncertain' state for 10ns
-	   rb_i <= '0';
+	   rb_s <= '0';
       -- hold reset state for 10 ns.
       wait for 20 ns;
-		rb_i <= '1';
-		d_i <= '0';
-		en_i <= '0';
+		rb_s <= '1';
+		d_s <= '0';
+		en_s <= '0';
       wait for 20 ns;
-		d_i <= '1';
-		en_i <= '0';
+		d_s <= '1';
+		en_s <= '0';
 		wait for 20 ns;
-		d_i <= '0';
-		en_i <= '1';
+		d_s <= '0';
+		en_s <= '1';
 		wait for 20 ns;
-		d_i <= '1';
-		en_i <= '1';
+		d_s <= '1';
+		en_s <= '1';
 		wait for 10 ns;
 		assert(false) severity failure;
 		

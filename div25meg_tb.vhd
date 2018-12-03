@@ -19,11 +19,11 @@ architecture behavior of div25meg_tb is
     
 
    --inputs
-   signal clk_i : std_logic := '0';
-   signal rb_i : std_logic;
+   signal clk_s : std_logic := '0';
+   signal rb_s : std_logic;
 
  	--outputs
-   signal div_o : std_logic;
+   signal div_s : std_logic;
 
    -- clock period definitions
    constant clk_i_period : time := 20 ns;
@@ -32,17 +32,17 @@ begin
  
 	-- instantiate the unit under test (uut)
    uut: div25meg_e port map (
-          clk_i => clk_i,
-          div_o => div_o,
-          rb_i => rb_i
+          clk_i => clk_s,
+          div_o => div_s,
+          rb_i => rb_s
         );
 
    -- clock process definitions
    clk_i_process :process
    begin
-		clk_i <= '0';
+		clk_s <= '0';
 		wait for clk_i_period/2;
-		clk_i <= '1';
+		clk_s <= '1';
 		wait for clk_i_period/2;
    end process;
  
@@ -52,9 +52,9 @@ begin
    begin		
       -- hold reset state for 100 ns.
       wait for 100 ns;	
-		rb_i <= '0';
+		rb_s <= '0';
       wait for 100 ns;
-		rb_i <= '1';
+		rb_s <= '1';
 		wait for 1000 ms;
 		assert(false) severity failure;
 

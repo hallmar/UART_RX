@@ -8,7 +8,7 @@ entity uartrx_e is
     heartb_o : out    std_logic;
     parity_o : out    std_logic;
     pass_o   : out    std_logic;
-    pass_sel : in     std_logic_vector(1 downto 0);
+    pass_sel_i : in     std_logic_vector(1 downto 0);
     rb_i     : in     std_logic;
 	rb_o     : out	 std_logic;
 	passsel_o : out	 std_logic_vector(1 downto 0)
